@@ -1,0 +1,27 @@
+Starting Existing Postgresql Container:
+docker start postgresql
+docker ps 
+
+# Launch the application -> SpringPostgresDemo
+cd SpringDemoNew
+mvn package
+cd target
+java -jar -Dserver.port=9191 SpringPostgresDemo-0.0.1-SNAPSHOT.jar
+http://localhost:9191/actuator
+http://localhost:9191/actuator/loggers
+http://localhost:9191/actuator/threaddump
+http://localhost:9191/actuator/env
+http://localhost:9191/actuator/beans
+http://localhost:9191/actuator/metrics	
+http://localhost:9191/actuator/metrics/hikaricp.connections.max
+
+
+
+
+
+
+
+
+
+
+
