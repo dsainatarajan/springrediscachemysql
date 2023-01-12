@@ -45,14 +45,14 @@ public class BookController {
 
 	@Cacheable(value = "book")
 	@GetMapping("/books/{id}")
-	public ResponseEntity<Book> getTutorialById(@PathVariable("id") long id) throws InterruptedException {
+	public Book getTutorialById(@PathVariable("id") long id) throws InterruptedException {
 		Optional<Book> bookData = bookrepo.findById(id);
 
 		Thread.sleep(100);
 		if (bookData.isPresent()) {
-			return new ResponseEntity<>(bookData.get(), HttpStatus.OK);
+			return bookData.get();
 		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return null;
 		}
 	}
 
