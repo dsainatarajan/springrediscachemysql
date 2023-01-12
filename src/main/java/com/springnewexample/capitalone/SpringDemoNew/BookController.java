@@ -71,7 +71,7 @@ public class BookController {
 		try {
 			Book book= bookrepo.findById(id).get();
 			book.setTitle(bookinput.getTitle());
-			book.setPublished(bookinput.getPublished());
+		//	book.setPublished(bookinput.getPublished());
 			book.setDescription(bookinput.getDescription());
 			
 			return new ResponseEntity<>(bookrepo.save(book), HttpStatus.CREATED);

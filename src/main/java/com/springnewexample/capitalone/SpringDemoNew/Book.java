@@ -20,8 +20,8 @@ public class Book {
 	@Column(name = "description")
 	private String description;
 
-	@Column(name = "published")
-	private boolean published;
+	//@Column(name = "published")
+	//private boolean published;
 	
 	Book(){
 		
@@ -32,7 +32,7 @@ public class Book {
 		this.id = id;
 		this.title = title;
 		this.description = description;
-		this.published = published;
+	//	this.published = published;
 	}
 
 	public long getId() {
@@ -59,7 +59,7 @@ public class Book {
 		this.description = description;
 	}
 
-	public boolean isPublished() {
+	/*	public boolean isPublished() {
 		return published;
 	}
 
@@ -70,10 +70,10 @@ public class Book {
 	public boolean getPublished() {
 		return this.published;
 	}
-
+*/
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published
+		return "Book [id=" + id + ", title=" + title + ", description=" + description //+ ", published=" + published
 				+ "]";
 	}
 	
