@@ -1,27 +1,18 @@
-Starting Existing Postgresql Container:
-docker start postgresql
-docker ps 
-
-# Launch the application -> SpringPostgresDemo
-cd SpringDemoNew
+# docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=Password -e MYSQL_DATABASE=springtraining -p 3306:3306 -d mysql:5.7
+docker ps
+docker start mysqldb
+# docker run -p 6379:6379 --name redis3 -d redis/redis-stack-server:latest
+cd $HOME
+git clone https://github.com/dsainatarajan/springrediscachemysql.git
+cd springrediscachemysql
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+export PATH=$HOME/bin:$JAVA_HOME/bin:$PATH
 mvn package
 cd target
-java -jar -Dserver.port=9191 SpringPostgresDemo-0.0.1-SNAPSHOT.jar
-http://localhost:9191/actuator
-http://localhost:9191/actuator/loggers
-http://localhost:9191/actuator/threaddump
-http://localhost:9191/actuator/env
-http://localhost:9191/actuator/beans
-http://localhost:9191/actuator/metrics	
-http://localhost:9191/actuator/metrics/hikaricp.connections.max
-
-
-
-
-
-
-
-
-
-
-
+java -jar SpringPostgresDemo-0.0.1-SNAPSHOT.jar
+curl --location --request POST 'http://localhost:8181/books' --header 'Content-Type: application/json' --header 'Accept: application/json' --data-raw ' { "title" : "Harry Potter", "description" : "by jk rowling", "published" : true }'
+curl localhost:8181/books/1
+redis-cli
+keys *
+get book::1
+ttl book::1
