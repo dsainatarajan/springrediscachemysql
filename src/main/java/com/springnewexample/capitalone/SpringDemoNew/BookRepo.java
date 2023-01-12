@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepo extends JpaRepository<Book, Long>{
 
-	  List<Book> findByPublished(boolean published);
+	 // List<Book> findByPublished(boolean published);
 
 	  List<Book> findByTitleContaining(String title);
 }
