@@ -43,7 +43,7 @@ public class BookController {
 		}
 	}
 
-	@Cacheable("book")
+	@Cacheable(value = "book")
 	@GetMapping("/books/{id}")
 	public ResponseEntity<Book> getTutorialById(@PathVariable("id") long id) throws InterruptedException {
 		Optional<Book> bookData = bookrepo.findById(id);
